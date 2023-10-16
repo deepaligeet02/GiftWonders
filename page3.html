@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Gift Gallery</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+<!-- JavaScript (optional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<link rel="stylesheet" href="styles.css">
+    <!-- Add your metadata and CSS links here, including Bootstrap CSS -->
+    
+    <style>
+      body {
+background-color: rgb(255, 249, 249);
+      }
+      .navbar-custom {
+      padding-top: 0.10rem; /* Adjust this value to make the navbar smaller */
+      padding-bottom: 0.15rem; 
+     
+  }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-auto" href="#">
+                <img src="./icon.png" alt="Your Website Logo" height="50" class="d-inline-block align-text-top">
+              </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+             
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="page2.html">Gifts Recmondation</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="page3.html">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="about.html">About Us</a>
+              </li>
+          </div>
+        </div>
+      </nav>
+    
+    
+
+    <div id="imageGallery" class="row" style="margin-top: 15px;">
+        <!-- Your gallery images will be displayed here -->
+    </div>
+
+    <script>
+        // Function to parse query parameters from the URL
+        function getQueryVariable(variable) {
+            const query = window.location.search.substring(1);
+            const vars = query.split('&');
+            for (let i = 0; i < vars.length; i++) {
+                const pair = vars[i].split('=');
+                if (decodeURIComponent(pair[0]) === variable) {
+                    return decodeURIComponent(pair[1]);
+                }
+            }
+            return null;
+        }
+
+        // Get the selected gift from the query parameter
+        const selectedGift = getQueryVariable('gift');
+
+        // Display the selected gift (you can customize this)
+        if (selectedGift) {
+            document.getElementById('imageGallery').innerHTML = `<h2>${selectedGift}</h2>`;
+        } else {
+            document.getElementById('imageGallery').innerHTML = '<p>No gift selected.</p>';
+        }
+
+        // Here, you can load and display images related to the selected gift.
+        // Example: Load and display images for the selected gift
+        if (selectedGift === 'video_games_male') {
+            // Load video games images
+            const galleryImages = ['VG1.jpg', 'VG2.jpg', 'VG3.jpg', 'VG4.jpg', 'VG5.jpg', 'VG6.jpg','VG7.jpg', 'VG8.jpg'];
+            const galleryContainer = document.getElementById('imageGallery');
+
+            // Clear any existing content in the gallery
+            galleryContainer.innerHTML = '';
+
+            for (const image of galleryImages) {
+                // Create a Bootstrap card for each image
+                const card = document.createElement('div');
+                card.className = 'col-md-3 mb-3';
+
+                const cardBody = document.createElement('div');
+                cardBody.className = 'card';
+
+                const imgElement = document.createElement('img');
+                imgElement.src = image;
+                imgElement.className = 'card-img-top';
+
+                const cardFooter = document.createElement('div');
+                cardFooter.className = 'card-footer';
+                cardFooter.innerText = 'Video-Games upto 50$';
+
+                cardBody.appendChild(imgElement);
+                cardBody.appendChild(cardFooter);
+                card.appendChild(cardBody);
+
+                galleryContainer.appendChild(card);
+            }
+        } 
+        else if (selectedGift === 'Toys_male') {
+            // Load images for another gift (similar structure to the above block)
+            const galleryImages = ['teddy.jpg','Toy2.jpg','Toy3.jpg','Toy4.jpg','Toy5.jpg','Toy6.jpg','Toy7.jpg', 'Toy8.jpg'];
+            const galleryContainer = document.getElementById('imageGallery');
+
+            // Clear any existing content in the gallery
+            galleryContainer.innerHTML = '';
+
+            for (const image of galleryImages) {
+                // Create a Bootstrap card for each image
+                const card = document.createElement('div');
+                card.className = 'col-md-3 mb-3';
+
+                const cardBody = document.createElement('div');
+                cardBody.className = 'card';
+
+                const imgElement = document.createElement('img');
+                imgElement.src = image;
+                imgElement.className = 'card-img-top';
+
+                const cardFooter = document.createElement('div');
+                cardFooter.className = 'card-footer';
+                cardFooter.innerText = 'Toys upto 35$';
+
+                cardBody.appendChild(imgElement);
+                cardBody.appendChild(cardFooter);
+                card.appendChild(cardBody);
+
+                galleryContainer.appendChild(card);
+        }
+    }
+        // Add more conditions for other gifts as needed.
+    </script>
+
+    <!-- Include Bootstrap JS and jQuery scripts at the end of the body for full Bootstrap functionality 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+</body>
+</html>
