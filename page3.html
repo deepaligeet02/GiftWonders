@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Gift Gallery</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: rgb(255, 249, 249);
+        }
+
+        .navbar-custom {
+            padding-top: 0.10rem;
+            padding-bottom: 0.15rem;
+        }
+        .nav-link{
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+        /* Style for the image cards */
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .card-img-top {
+            width: 100%; /* Full width */
+            height: 200px; /* Fixed height for consistency */
+            object-fit: cover; /* Ensures the image fits the card without distortion */
+            border-radius: 10px 10px 0 0; /* Match card's border radius */
+        }
+
+        .card-footer {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-auto" href="#">
+                <img src="./icon.png" alt="Your Website Logo" height="50" class="d-inline-block align-text-top">
+              </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="page2.html">Gifts Recommendation</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="page3.html">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="about.html">About Us</a>
+              </li>
+          </div>
+        </div>
+    </nav>
+
+    <div id="imageGallery" class="row" style="margin-top: 15px; padding: 0 10px;">
+    </div>
+
+    <script>
+        // Function to parse query parameters from the URL
+        function getQueryVariable(variable) {
+            const query = window.location.search.substring(1);
+            const vars = query.split('&');
+            for (let i = 0; i < vars.length; i++) {
+                const pair = vars[i].split('=');
+                if (decodeURIComponent(pair[0]) === variable) {
+                    return decodeURIComponent(pair[1]);
+                }
+            }
+            return null;
+        }
+
+        // Get the selected gift from the query parameter
+        const selectedGift = getQueryVariable('gift');
+
+        // Display the selected gift (you can customize this)
+        if (selectedGift) {
+            document.getElementById('imageGallery').innerHTML = `<h2 class="text-center">${selectedGift}</h2>`;
+        } else {
+            document.getElementById('imageGallery').innerHTML = '<p>Please Select The Gift First</p>';
+        }
+
+        // Example: Load and display images for the selected gift
+        const gifts = {
+            'video_games_male': ['VG1.jpg', 'VG2.jpg', 'VG3.jpg', 'VG4.jpg', 'VG5.jpg', 'VG6.jpg', 'VG7.jpg', 'VG8.jpg'],
+            'Toys_male': ['teddy.jpg', 'Toy2.jpg', 'Toy3.jpg', 'Toy4.jpg', 'Toy5.jpg', 'Toy6.jpg', 'Toy7.jpg', 'Toy8.jpg'],
+            'Watch': ['watch1.jpeg', 'watch2.jpeg', 'Watch3.jpg', 'Watch4.jpg', 'Watch5.jpg', 'Watch6.jpg', 'Watch7.jpeg', 'Watch8.jpeg'],
+            'Laptop': ['lap1.jpeg', 'lap2.jpeg', 'lap3.jpeg', 'lap4.jpeg', 'lap5.jpeg', 'lap6.jpeg', 'lap7.jpeg', 'lap8.jpeg'],
+            'Photo Frame': ['pf.jpeg', 'pf2.jpeg', 'pf3.jpeg', 'pf4.jpeg', 'pf5.jpeg', 'pf6.jpeg', 'pf7.jpeg', 'pf8.jpeg'],
+            'Wall clock': ['clock1.jpg', 'clock2.jpeg', 'clock3.jpg', 'clock4.jpg', 'clock5.jpg', 'clock6.jpg', 'clock7.jpg', 'clock8.jpeg'],
+            'Dinner Set': ['d1.jpg', 'd2.jpg', 'd3.jpg', 'd4.jpeg', 'd5.jpg', 'd6.jpeg', 'd7.jpeg', 'd8.jpg'], 
+            'Silver Gifts': ['hws1.jpg', 'hws2.jpeg', 'hws3.jpeg', 'hws4.jpg', 'hws5.jpg', 'hws6.jpg', 'hws7.jpeg', 'hws8.jpeg'] ,
+            'Wireless Speaker': ['s1.jpg', 's2.jpeg', 's3.jpg', 's4.jpg', 's5.jpg', 's6.jpg', 's7.jpg', 's8.jpeg'],
+            'Book': ['book1.jpeg', 'book2.png', 'book3.jpg', 'book4.jpg', 'book5.jpg', 'book6.jpg', 'book7.jpg', 'book8.jpg'],
+            'Perfumes': ['per1.jpeg', 'per2.jpeg', 'per3.jpeg', 'per4.jpeg', 'per5.jpeg', 'per6.jpeg', 'per7.jpeg', 'per8.jpeg'],
+            'Yoga': ['yoga1.jpeg', 'yoga2.jpeg', 'yoga3.jpeg', 'yoga4.jpeg', 'yoga5.jpeg', 'yoga6.jpeg', 'yoga7.jpeg', 'yoga8.jpeg']
+
+        };
+
+        if (selectedGift && gifts[selectedGift]) {
+            const galleryImages = gifts[selectedGift];
+            const galleryContainer = document.getElementById('imageGallery');
+
+            // Clear any existing content in the gallery
+            galleryContainer.innerHTML = '';
+
+            for (const image of galleryImages) {
+                // Create a Bootstrap card for each image
+                const card = document.createElement('div');
+                card.className = 'col-md-3 mb-3';
+
+                const cardBody = document.createElement('div');
+                cardBody.className = 'card';
+
+                const imgElement = document.createElement('img');
+                imgElement.src = image;
+                imgElement.className = 'card-img-top';
+
+                const cardFooter = document.createElement('div');
+                cardFooter.className = 'card-footer';
+                cardFooter.innerText = `${selectedGift.replace('_', ' ')} upto $50`;
+
+                cardBody.appendChild(imgElement);
+                cardBody.appendChild(cardFooter);
+                card.appendChild(cardBody);
+
+                galleryContainer.appendChild(card);
+            }
+        }
+    </script>
+</body>
+</html>
+

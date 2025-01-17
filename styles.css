@@ -1,0 +1,80 @@
+
+
+
+.desc {
+    text-align: center;
+    margin-top: 100px;
+   
+    overflow: hidden;
+    font-size: 100px;
+    font-style: oblique;
+    text-shadow: darkgreen;
+}
+
+.desc h2 {
+    color: #140202;
+    
+    font-size: 50px;
+    
+        font:italic;
+      position:sticky;
+      text-shadow: 2px 2px 5px rgb(221, 44, 221);
+    
+    transform: translateX(-100%); /* Start with text off-screen */
+    animation: slideInFromLeft 2s ease-in-out forwards; /* Apply the translation animation */
+}
+
+/* CSS for the right side content */
+.right-content {
+    text-align: center;
+    padding-right: 20px;
+}
+.right-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Animation keyframes */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%); /* Start with text off-screen */
+    }
+    100% {
+        transform: translateX(0); /* Translate to the original position */
+    }
+}
+
+@keyframes blink {
+    0% {
+        color: rgb(37, 37, 107); /* Start with blue color */
+    }
+    30% {
+        color: rgb(143, 206, 182); /* Change to red color halfway through */
+    }
+    20% {
+        color: rgb(151, 70, 147); /* Change to red color halfway through */
+    }
+    100% {
+       /* color: rgb(255, 0, 242);  Return to blue color */
+        color:rgb(37, 37, 107)
+    }
+}
+
+/* Apply the animation to the blockquote with a class */
+.blinking-text {
+    font-size: 50px;
+    margin-top: 80px;
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    animation: blink 3s infinite; /* Set the animation to repeat indefinitely */
+}
+
+
+  .spanabout{background-color: rgb(35, 31, 31);}
+  .spancontent{text-align: right;}
+  .drop{
+margin-top: 100px;
+  }
+   .drop-custom {
+    background-color: rgb(210, 210, 215);  /* Change this color to your desired background color */
+}

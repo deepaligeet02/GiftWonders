@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-image: url('./page2back.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .navbar-custom {
+            padding-top: 0.10rem;
+            padding-bottom: 0.15rem;
+        }
+        .nav-link{
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+  }
+        .drop-custom {
+            background-color: #f6fbff; /* Replace with your custom color */
+            color: rgb(19, 12, 12);
+            border: 1px solid #3722da; /* Border color to match */
+            width: 240px; /* Set consistent medium width for dropdowns */
+        }
+
+        .drop-custom:hover {
+            background-color: #4b8ed6;
+            color: white;
+        }
+
+        .dropdown-menu {
+            background-color: white;
+            
+        }
+        #ageDropdownButton{
+            margin-top: 25px;
+        }
+        
+        #genderDropdownButton{
+            margin-top: 25px;
+        }
+        /* Align dropdowns nicely on all screens */
+        .dropdown {
+            margin: 5px auto;
+            margin-top: 5px;
+            /* Centered and spaced nicely */
+        }
+ .textsize{
+    font-family: 'Times New Roman', Times, serif;
+    
+    
+ }
+        @media (max-width: 768px) {
+            .dropdown {
+                width: 100%; /* Full width dropdowns on smaller screens */
+            }
+
+            .drop-custom {
+                width: 100%; /* Adjust button width on smaller screens */
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="page3.html">
+                <img src="./icon.png" alt="Your Website Logo" height="50" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="page2.html">Gifts Recommendation</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="page3.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="dropdown text-center age textsize">
+                    <button class="btn btn-primary drop-custom dropdown-toggle" type="button" id="ageDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Age
+                    </button>
+                    <ul class="dropdown-menu w-95" aria-labelledby="ageDropdownButton">
+                        <li><a class="dropdown-item" href="#" onclick="selectAge('1-18')">1-18</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="selectAge('18-35')">18-35</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="selectAge('35-80')">35-80</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="dropdown text-center textsize">
+                    <button class="btn btn-primary drop-custom dropdown-toggle" type="button" id="genderDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Gender
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="genderDropdownButton">
+                        <li><a class="dropdown-item" href="#" onclick="selectGender('Male')">Male</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="selectGender('Female')">Female</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3 mt-4">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="dropdown text-center textsize">
+                    <button class="btn btn-primary drop-custom dropdown-toggle" type="button" id="BirthdaygiftButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Birthday Gifts
+                    </button>
+                    <ul class="dropdown-menu" id="BirthdaygiftDropdownMenu" aria-labelledby="giftDropdownButton"></ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="dropdown text-center textsize">
+                    <button class="btn btn-primary drop-custom dropdown-toggle" type="button" id="WeddingGiftButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Wedding Gifts
+                    </button>
+                    <ul class="dropdown-menu" id="WeddingGiftDropdownMenu" aria-labelledby="giftDropdownButton"></ul>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="row g-3 mt-4">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="dropdown text-center textsize">
+                    <button class="btn btn-primary drop-custom dropdown-toggle" type="button" id="fmGiftButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Mother/Father Day
+                    </button>
+                    <ul class="dropdown-menu" id="fmGiftDropdownMenu" aria-labelledby="giftDropdownButton"></ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="dropdown text-center textsize">
+                    <button class="btn btn-primary drop-custom dropdown-toggle" type="button" id="hwButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        House-Warming Gifts
+                    </button>
+                    <ul class="dropdown-menu" id="hwGiftDropdownMenu" aria-labelledby="giftDropdownButton"></ul>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="row g-3 mt-4">
+           
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="dropdown text-center textsize">
+                        <button class="btn btn-primary drop-custom dropdown-toggle" type="button" id="AnniversaryGiftButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Anniversary Gifts
+                        </button>
+                        <ul class="dropdown-menu" id="AnniversaryGiftDropdownMenu" aria-labelledby="giftDropdownButton"></ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                <div class="dropdown text-center textsize">
+                    <button class="btn btn-primary drop-custom dropdown-toggle" type="button" id="GraduationGiftButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Graduation Gifts
+                    </button>
+                    <ul class="dropdown-menu" id="GraduationGiftDropdownMenu" aria-labelledby="giftDropdownButton"></ul>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        let selectedAge = '';
+        let selectedGender = '';
+
+        function selectAge(age) {
+            selectedAge = age;
+            updateBirthdayGiftDropdown();
+            updateWeddingGiftDropdown();
+            updateAnniversaryDropdown();
+            updateGraduationDropdown();
+            updatehwdayDropdown()
+        }
+
+        function selectGender(gender) {
+            selectedGender = gender;
+            updateBirthdayGiftDropdown();
+            updateWeddingGiftDropdown();
+            updateAnniversaryDropdown();
+            updateGraduationDropdown();
+            updatehwdayDropdown()
+            updateFMdayDropdown()
+        }
+
+        function updateBirthdayGiftDropdown() {
+            // Update the gift dropdown button text
+            const giftDropdownButton = document.getElementById('BirthdaygiftButton');
+            giftDropdownButton.textContent = `  Birthday Gifts  `;
+//${selectedAge} ${selectedGender}
+            // Update the birthday gift list based on the selected age and gender
+            const giftDropdownMenu = document.getElementById('BirthdaygiftDropdownMenu');
+            giftDropdownMenu.innerHTML = ''; // Clear existing gift items
+
+            // Add gift items based on the selected age and gender
+            if (selectedAge === '1-18' && selectedGender === 'Male') {
+                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=video_games_male"> Video Games</a></li>';
+                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Toys_male">Toys</a></li>';
+               
+            } else if (selectedAge === '1-18' && selectedGender === 'Female') {
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=video_games_male">Video Games</a></li>';
+               giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Toys_male">Toys</a></li>';
+                
+            }
+
+            // Add gift items based on the selected age and gender
+            if (selectedAge === '18-35' && selectedGender === 'Male') {
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Watch"> Watch</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Laptop"> Laptops</a></li>';
+            } else if (selectedAge === '18-35' && selectedGender === 'Female') {
+             giftDropdownMenu.innerHTML += '<li><a class="dropdown-item"  href="page3.html?gift=Photo Frame">Photo Frame</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html">Perfume</a></li>';
+            }// Add gift items based on the selected age and gender
+            if (selectedAge === '35-80' && selectedGender === 'Male') {
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Book">Books</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html">Yoga Equipment</a></li>';} 
+            else if (selectedAge === '35-80' && selectedGender === 'Female') {
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html">Yoga Equipments</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Photo Frame"">Photo Frames</a></li>';
+            }
+        }
+
+        function updateWeddingGiftDropdown() 
+        {
+            // Update the gift dropdown button text
+            const giftDropdownButton = document.getElementById('WeddingGiftButton');
+            giftDropdownButton.textContent = `  Wedding Gifts  `;
+            // Update the birthday gift list based on the selected age and gender
+            const giftDropdownMenu = document.getElementById('WeddingGiftDropdownMenu');
+            giftDropdownMenu.innerHTML = ''; // Clear existing gift items
+            // Add gift items based on the selected age and gender
+            if (selectedAge === '18-35' && selectedGender === 'Male') {
+                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html">Laptop</a></li>';
+                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Photo Frame">Photo Frames</a></li>';
+            } else if (selectedAge === '18-35' && selectedGender === 'Female') {
+                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Perfumes">Perfumes</a></li>';
+                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html">Laptop</a></li>';
+            }
+
+            // Add gift items based on the selected age and gender
+            if (selectedAge === '35-80' && selectedGender === 'Male') {
+                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Yoga">Yoga Equipment</a></li>';
+                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Book">Books</a></li>';
+            } else if (selectedAge === '35-80' && selectedGender === 'Female') {
+                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Perfumes">Perfumes</a></li>';
+                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Book">Books</a></li>';
+            }
+            // Add more conditions for other age and gender combinations as needed
+        }
+        
+    document.getElementById('WeddingGiftButton').addEventListener('click', function () {
+    // Check if the selected age is appropriate for the Anniversary Gift dropdown
+    if (selectedAge == '1-18') {
+        alert('Please select an appropriate(18-35) or (35-80) Age');
+        return; // Exit without showing the dropdown
+    }
+
+    // Call the function to update the dropdown if the age is correct
+    updateWeddingGiftDropdown();
+});
+    function updateAnniversaryDropdown() 
+    {
+        // Update the gift dropdown button text
+        const giftDropdownButton = document.getElementById('AnniversaryGiftButton');
+        giftDropdownButton.textContent = `Anniversary Gift`;
+        
+        // Update the birthday gift list based on the selected age and gender
+        const giftDropdownMenu = document.getElementById('AnniversaryGiftDropdownMenu');
+        giftDropdownMenu.innerHTML = ''; // Clear existing gift items
+        
+        // Add gift items based on the selected age and gender
+        if (selectedAge === '35-80' && selectedGender === 'Male') {
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Wall clock">Wall Clock</a></li>';
+             giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Photo Frame">Photo Frames</a></li>';
+        } else if (selectedAge === '35-80' && selectedGender === 'Female') {
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Dinner Set">Dinner Set</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Silver Gifts">Silver Gifts</a></li>';
+        }
+    }
+    document.getElementById('AnniversaryGiftButton').addEventListener('click', function () {
+    // Check if the selected age is appropriate for the Anniversary Gift dropdown
+    if (selectedAge !== '35-80') {
+        alert('Please select an appropriate (35-80) Age.');
+        return; // Exit without showing the dropdown
+    }
+
+    // Call the function to update the dropdown if the age is correct
+    updateAnniversaryDropdown();
+});
+
+    function updateGraduationDropdown() 
+    {
+        // Update the gift dropdown button text
+        const giftDropdownButton = document.getElementById('GraduationGiftButton');
+        giftDropdownButton.textContent = `Graduation Gift`;
+        // Update the birthday gift list based on the selected age and gender
+        const giftDropdownMenu = document.getElementById('GraduationGiftDropdownMenu');
+        giftDropdownMenu.innerHTML = ''; // Clear existing gift items
+        if (selectedAge === '18-35' && selectedGender === 'Male') {
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Laptop">Laptops</li>';
+                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Book">Book</a></li>';
+                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Watch"> Watch</a></li>';
+        } else if (selectedAge === '18-35' && selectedGender === 'Female') {
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Book">Books</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Laptop">Laptops</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html">Perfumes</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Photo Frame">Photo Frames</a></li>';
+        }
+    }
+    document.getElementById('GraduationGiftButton').addEventListener('click', function () {
+    // Check if the selected age is appropriate for the Anniversary Gift dropdown
+    if (selectedAge !== '18-35') {
+        alert('Please select an appropriate (18-35) Age.');
+        return; // Exit without showing the dropdown
+    }
+
+    // Call the function to update the dropdown if the age is correct
+    updateGraduationDropdown();
+});
+    function updateFMdayDropdown() 
+    {
+        // Update the gift dropdown button text
+        const giftDropdownButton = document.getElementById('fmGiftButton');
+        giftDropdownButton.textContent = `Mother/Father Gift`;
+
+        // Update the birthday gift list based on the selected age and gender
+        const giftDropdownMenu = document.getElementById('fmGiftDropdownMenu');
+        giftDropdownMenu.innerHTML = ''; // Clear existing gift items
+        if (selectedAge === '35-80' && selectedGender === 'Male') {
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Watch">Watch</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html"?gift=Book">Book</a></li>';
+        } else if (selectedAge === '35-80' && selectedGender === 'Female') {
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Book">Book</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Silver Gifts">Silver Gifts</a></li>';
+        }
+    }
+    document.getElementById('fmGiftButton').addEventListener('click', function () {
+    // Check if the selected age is appropriate for the Anniversary Gift dropdown
+    if (selectedAge !== '35-80') {
+        alert('Please select an appropriate (35-80) age ');
+        return; // Exit without showing the dropdown
+    }
+
+    // Call the function to update the dropdown if the age is correct
+    updateFMdayDropdown();
+});
+    
+    function updatehwdayDropdown() 
+    {
+        // Update the gift dropdown button text
+        const giftDropdownButton = document.getElementById('hwButton');
+        giftDropdownButton.textContent = ` House-Warming Gifts`;
+        // Update the birthday gift list based on the selected age and gender
+        const giftDropdownMenu = document.getElementById('hwGiftDropdownMenu');
+        giftDropdownMenu.innerHTML = ''; // Clear existing gift items
+
+        if (selectedAge === '35-80' && selectedGender === 'Male') {
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Dinner Set">Dinner Set</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Wireless Speaker">Wireless Speaker</a></li>';
+        } else if (selectedAge === '35-80' && selectedGender === 'Female') {
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Silver Gifts">Silver Gifts</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Wall clock">Wall Clock</a></li>';
+        }
+    }
+    document.getElementById('hwButton').addEventListener('click', function () {
+    // Check if the selected age is appropriate for the Anniversary Gift dropdown
+    if (selectedAge !== '35-80') {
+        alert('Please select an appropriate (35-80) age ');
+        return; // Exit without showing the dropdown
+    }
+
+    // Call the function to update the dropdown if the age is correct
+    updatehwdayDropdown();
+});
+</script> 
+
+</body>
+
+</html>
+
+
+
