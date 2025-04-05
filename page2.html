@@ -85,7 +85,12 @@
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="page2.html">Gifts Recommendation</a></li>
                     <li class="nav-item"><a class="nav-link active" href="page3.html">Gallery</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="cart.html">🛒 Cart</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
+                    
+                    
                 </ul>
             </div>
         </div>
@@ -228,15 +233,15 @@
             giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Watch"> Watch</a></li>';
             giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Laptop"> Laptops</a></li>';
             } else if (selectedAge === '18-35' && selectedGender === 'Female') {
-             giftDropdownMenu.innerHTML += '<li><a class="dropdown-item"  href="page3.html?gift=Photo Frame">Photo Frame</a></li>';
+             giftDropdownMenu.innerHTML += '<li><a class="dropdown-item"  href="page3.html?gift=PhotoFrames">Photo Frame</a></li>';
             giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Perfumes">Perfume</a></li>';
             }// Add gift items based on the selected age and gender
             if (selectedAge === '35-80' && selectedGender === 'Male') {
-            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Book">Books</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Books">Books</a></li>';
             giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Yoga">Yoga Equipment</a></li>';} 
             else if (selectedAge === '35-80' && selectedGender === 'Female') {
             giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Yoga">Yoga Equipments</a></li>';
-            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Photo Frame">Photo Frames</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=PhotoFrames">Photo Frames</a></li>';
             }
         }
 
@@ -251,7 +256,7 @@
             // Add gift items based on the selected age and gender
             if (selectedAge === '18-35' && selectedGender === 'Male') {
                 giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Laptop">Laptop</a></li>';
-                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Photo Frame">Photo Frames</a></li>';
+                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=PhotoFrames">Photo Frames</a></li>';
             } else if (selectedAge === '18-35' && selectedGender === 'Female') {
                 giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Perfumes">Perfumes</a></li>';
                 giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Laptop">Laptop</a></li>';
@@ -260,10 +265,10 @@
             // Add gift items based on the selected age and gender
             if (selectedAge === '35-80' && selectedGender === 'Male') {
                 giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Yoga">Yoga Equipment</a></li>';
-                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Book">Books</a></li>';
+                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Books">Books</a></li>';
             } else if (selectedAge === '35-80' && selectedGender === 'Female') {
                 giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Perfumes">Perfumes</a></li>';
-                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Book">Books</a></li>';
+                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Books">Books</a></li>';
             }
             // Add more conditions for other age and gender combinations as needed
         }
@@ -290,11 +295,11 @@
         
         // Add gift items based on the selected age and gender
         if (selectedAge === '35-80' && selectedGender === 'Male') {
-            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Wall clock">Wall Clock</a></li>';
-             giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Photo Frame">Photo Frames</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=WallClock">Wall Clock</a></li>';
+             giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=PhotoFrames">Photo Frames</a></li>';
         } else if (selectedAge === '35-80' && selectedGender === 'Female') {
-            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Dinner Set">Dinner Set</a></li>';
-            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Silver Gifts">Silver Gifts</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=DinnerSet">Dinner Set</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=SilverGifts">Silver Gifts</a></li>';
         }
     }
     document.getElementById('AnniversaryGiftButton').addEventListener('click', function () {
@@ -318,13 +323,13 @@
         giftDropdownMenu.innerHTML = ''; // Clear existing gift items
         if (selectedAge === '18-35' && selectedGender === 'Male') {
             giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Laptop">Laptops</li>';
-                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Book">Book</a></li>';
+                giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Books">Book</a></li>';
                 giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Watch"> Watch</a></li>';
         } else if (selectedAge === '18-35' && selectedGender === 'Female') {
-            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Book">Books</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Books">Books</a></li>';
             giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Laptop">Laptops</a></li>';
             giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Perfumes">Perfumes</a></li>';
-            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Photo Frame">Photo Frames</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=PhotoFrames">Photo Frames</a></li>';
         }
     }
     document.getElementById('GraduationGiftButton').addEventListener('click', function () {
@@ -348,10 +353,10 @@
         giftDropdownMenu.innerHTML = ''; // Clear existing gift items
         if (selectedAge === '35-80' && selectedGender === 'Male') {
             giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Watch">Watch</a></li>';
-            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Book">Book</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Books">Books</a></li>';
         } else if (selectedAge === '35-80' && selectedGender === 'Female') {
-            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Book">Book</a></li>';
-            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Silver Gifts">Silver Gifts</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Books">Books</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=SilverGifts">Silver Gifts</a></li>';
         }
     }
     document.getElementById('fmGiftButton').addEventListener('click', function () {
@@ -375,11 +380,11 @@
         giftDropdownMenu.innerHTML = ''; // Clear existing gift items
 
         if (selectedAge === '35-80' && selectedGender === 'Male') {
-            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Dinner Set">Dinner Set</a></li>';
-            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Wireless Speaker">Wireless Speaker</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=DinnerSet">Dinner Set</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=WirelessSpeaker">Wireless Speaker</a></li>';
         } else if (selectedAge === '35-80' && selectedGender === 'Female') {
-            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Silver Gifts">Silver Gifts</a></li>';
-            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=Wall clock">Wall Clock</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=SilverGifts">Silver Gifts</a></li>';
+            giftDropdownMenu.innerHTML += '<li><a class="dropdown-item" href="page3.html?gift=WallClock">Wall Clock</a></li>';
         }
     }
     document.getElementById('hwButton').addEventListener('click', function () {

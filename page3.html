@@ -40,6 +40,39 @@
             text-align: center;
             font-weight: bold;
         }
+
+        .card-body {
+    text-align: left; /* Left-align everything inside the card */
+}
+
+.card-title {
+    text-align: left;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.card-text {
+    text-align: left; /* Left-align description */
+    font-size: 14px;
+    color: #1e1b1b; /* Muted text color */
+}
+
+.fw-bold.text-danger {
+    font-size: 16px;
+    text-align: left;
+    color: #1e1b1b;
+}
+
+.btn-success {
+    width: 50%; /* Full-width button */
+    text-align: center;
+}
+
+.card {
+    border-radius: 10px; /* Smooth rounded corners */
+    padding: 10px;
+}
+
     </style>
 </head>
 <body>
@@ -62,6 +95,9 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="page3.html">Gallery</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="cart.html">🛒 Cart</a>
+            </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="about.html">About Us</a>
               </li>
@@ -98,51 +134,360 @@
 
         // Example: Load and display images for the selected gift
         const gifts = {
-            'video_games_male': ['VG1.jpg', 'VG2.jpg', 'VG3.jpg', 'VG4.jpg', 'VG5.jpg', 'VG6.jpg', 'VG7.jpg', 'VG8.jpg'],
-            'Toys_male': ['teddy.jpg', 'Toy2.jpg', 'Toy3.jpg', 'Toy4.jpg', 'Toy5.jpg', 'Toy6.jpg', 'Toy7.jpg', 'Toy8.jpg'],
-            'Watch': ['watch1.jpeg', 'watch2.jpeg', 'Watch3.jpg', 'Watch4.jpg', 'Watch5.jpg', 'Watch6.jpg', 'Watch7.jpeg', 'Watch8.jpeg'],
-            'Laptop': ['lap1.jpeg', 'lap2.jpeg', 'lap3.jpeg', 'lap4.jpeg', 'lap5.jpeg', 'lap6.jpeg', 'lap7.jpeg', 'lap8.jpeg'],
-            'Photo Frame': ['pf.jpeg', 'pf2.jpeg', 'pf3.jpeg', 'pf4.jpeg', 'pf5.jpeg', 'pf6.jpeg', 'pf7.jpeg', 'pf8.jpeg'],
-            'Wall clock': ['clock1.jpg', 'clock2.jpeg', 'clock3.jpg', 'clock4.jpg', 'clock5.jpg', 'clock6.jpg', 'clock7.jpg', 'clock8.jpeg'],
-            'Dinner Set': ['d1.jpg', 'd2.jpg', 'd3.jpg', 'd4.jpeg', 'd5.jpg', 'd6.jpeg', 'd7.jpeg', 'd8.jpg'], 
-            'Silver Gifts': ['hws1.jpg', 'hws2.jpeg', 'hws3.jpeg', 'hws4.jpg', 'hws5.jpg', 'hws6.jpg', 'hws7.jpeg', 'hws8.jpeg'] ,
-            'Wireless Speaker': ['s1.jpg', 's2.jpeg', 's3.jpg', 's4.jpg', 's5.jpg', 's6.jpg', 's7.jpg', 's8.jpeg'],
-            'Book': ['book1.jpeg', 'book2.png', 'book3.jpg', 'book4.jpg', 'book5.jpg', 'book6.jpg', 'book7.jpg', 'book8.jpg'],
-            'Perfumes': ['per1.jpeg', 'per2.jpeg', 'per3.jpeg', 'per4.jpeg', 'per5.jpeg', 'per6.jpeg', 'per7.jpeg', 'per8.jpeg'],
-            'Yoga': ['yoga1.jpeg', 'yoga2.jpeg', 'yoga3.jpeg', 'yoga4.jpeg', 'yoga5.jpeg', 'yoga6.jpeg', 'yoga7.jpeg', 'yoga8.jpeg']
+'video_games_male': [
+    { "name": "Nintendo Switch", "img": "VG1.jpg", "desc": "Handheld gaming console for immersive play.", "price": 100 },
+    { "name": "Car Racing", "img": "VG2.jpg", "desc": "Exciting car racing video game.", "price": 50 },
+    { "name": "PS4 Controller", "img": "VG3.jpg", "desc": "Wireless PlayStation 4 controller for gaming.", "price": 240 },
+    { "name": "Football Game", "img": "VG4.jpg", "desc": "Multiplayer football video game.", "price": 500},
+    { "name": "Action Racing", "img": "VG5.jpg", "desc": "High-speed action-packed racing game.", "price": 650 },
+    { "name": "Adventure Game", "img": "VG6.jpg", "desc": "Thrilling adventure video game.", "price": 450 },
+    { "name": "Retro Handheld Console", "img": "VG7.jpg", "desc": "Classic retro gaming console,built-in games.", "price": 250 },
+    { "name": "Pixel Puzzle Game", "img": "VG8.jpg", "desc": "LED-based interactive pixel puzzle game.", "price": 250 }
+],
 
+'Toys_male': [
+        { name: 'Teddy Bear', img: 'teddy.jpg', desc: 'Soft and cuddly teddy bear for kids.', price: 120 },
+        { name: 'Remote Car', img: 'Toy2.jpg', desc: 'Remote-controlled car.', price: 200 },
+        { name: 'Lego Set', img: 'Toy3.jpg', desc: 'Lego building set with over 500 pieces.', price: 80 },
+        { name: 'Talking Robot', img: 'Toy4.jpg', desc: 'Interactive talking robot for kids.', price: 300 },
+        { name: 'Action Figures', img: 'Toy5.jpg', desc: 'Action figure set with multiple accessories.', price: 70 },
+        { name: 'Dinosaur Toy', img: 'Toy6.jpg', desc: 'Dinosaur toy with realistic sounds.', price: 90 },
+        { name: 'Green Car ', img: 'Toy7.jpg', desc: 'Modern Design Green Car', price: 200 },
+        { name: 'Robo and Car set', img: 'Toy8.jpg', desc: 'Robo and remote control car', price: 400 }],
+             
+'Watch': [
+    { "name": "Sporty Orange Chronograph", "img": "watch1.jpeg", "desc": "sporty desig Orange chronograph watch.", "price": 500 },
+    { "name": "Smart Digital Watch", "img": "watch2.jpeg", "desc": "Modern digital smartwatch", "price": 800 },
+    { "name": "Rugged Outdoor Watch", "img": "Watch3.jpg", "desc": "Durable outdoor watch with a tough design.", "price": 950 },
+    { "name": "Trendy Smartwatch", "img": "Watch4.jpg", "desc": "Stylish smartwatch with a colorful display.", "price": 1050 },
+    { "name": "Blue Skeleton Watch", "img": "Watch5.jpg", "desc": "Luxury skeleton dial watch with a blue theme.", "price": 750 },
+    { "name": "Golden Skeleton Watch", "img": "Watch6.jpg", "desc": "Golden skeleton watch with a leather strap.", "price": 1550 },
+    { "name": "Elegant Chronograph", "img": "Watch7.jpeg", "desc": "Sophisticated silver chronograph watch.", "price": 950 },
+    { "name": "Luxury Blue Watch", "img": "Watch8.jpeg", "desc": "High-end blue watch with an intricate design.","price": 650}],
+
+'Laptop': [
+    { "name": "HP Pavilion dv7", "img": "lap1.jpeg", "desc": "Reliable HP Pavilion dv7 laptop with a sleek design.", "price": 65000 },
+    { "name": "ASUS Laptop", "img": "lap2.jpeg", "desc": "High-performance ASUS laptop for everyday use.", "price": 40000 },
+    { "name": "Dell Laptop", "img": "lap3.jpeg", "desc": "Durable Dell laptop with a professional design.", "price": 62000 },
+    { "name": "Apple MacBook", "img": "lap4.jpeg", "desc": "Premium Apple MacBook with a stylish finish.", "price": 120000 },
+    { "name": "HP ProBook", "img": "lap5.jpeg", "desc": "Business-class HP ProBook with powerful specs.", "price": 70000 },
+    { "name": "Convertible Laptop", "img": "lap6.jpeg", "desc": "Versatile convertible laptop with a touchscreen display.", "price": 135000 },
+    { "name": "Xiaomi Notebook Pro", "img": "lap7.jpeg", "desc": "Sleek and powerful Xiaomi Notebook Pro with high speed", "price":45000 },
+    { "name": "MacBook Air", "img": "lap8.jpeg", "desc": "Lightweight MacBook Air for portability and high speed","price": 150000}],
+
+'PhotoFrames': [
+    { "name": "Rustic Wooden Frame", "img": "pf.jpeg", "desc": "Beautiful rustic wooden frame", "price": 150 },
+    { "name": "Collage Photo Frame", "img": "pf2.jpeg", "desc": "Multi-photo collage frame for memories.", "price": 250 },
+    { "name": "Family Wall Frame", "img": "pf3.jpeg", "desc": "Large family-themed photo frame.", "price": 350 },
+    { "name": "Golden Decorative Frame", "img": "pf4.jpeg", "desc": "Elegant golden frame for premium look.", "price": 450 },
+    { "name": "Vintage Wall Frames", "img": "pf5.jpeg", "desc": "Vintage-inspired gold wall frames.", "price": 250 },
+    { "name": "Minimalist Hanging Frame", "img": "pf6.jpeg", "desc": "Sleek hanging frame for modern interiors.", "price": 300 },
+    { "name": "Engraved Wooden Frame", "img": "pf7.jpeg", "desc": "Personalized wooden frame with engravings.", "price": 275 },
+    { "name": "Heart-Shaped Floral Frame", "img": "pf8.jpeg", "desc": "Heart-shaped frame with floral design.", "price": 150 }],
+        
+'Perfumes': [
+    { "name": "Flowerbomb Set", "img": "per1.jpeg", "desc": "Luxury floral fragrance set with travel spray.", "price": 450 },
+    { "name": "Elegant Pink Mist", "img": "per2.jpeg", "desc": "Soft and fresh floral scent for daily wear.", "price": 350 },
+    { "name": "Lavender Bloom", "img": "per3.jpeg", "desc": "Lavender-infused fragrance for a calming aura.", "price": 450 },
+    { "name": "Classic Musk", "img": "per4.jpeg", "desc": "Rich musky fragrance for a lasting impression.", "price": 550 },
+    { "name": "Blossom Essence", "img": "per5.jpeg", "desc": "A refreshing blend of floral and fruity notes with mild smell.", "price": 500 },
+    { "name": "Bold Noir", "img": "per6.jpeg", "desc": "Intense and sophisticated fragrance with a warm touch.", "price": 300 },
+    { "name": "Rose & Chanel", "img": "per7.jpeg", "desc": "Classic rose-infused perfume with Chanel elegance.", "price": 250 },
+    { "name": "Orchid Serenity", "img": "per8.jpeg", "desc": "Orchid and green tea-based fragrance for relaxation.", "price": 150 }],
+
+'Books': [
+    { "name": "The Idiot", "img": "book1.jpeg", "desc": "A witty coming-of-age novel about a young woman's journey through college.", "price": 150 },
+    { "name": "The Baseball 100", "author": "Joe Posnanski", "img": "book2.png", "desc": "A comprehensive ranking of the 100 greatest baseball players.", "price": 100 },
+    { "name": "Secret Lives of Color", "img": "book3.jpg", "desc": "A fascinating history of colors and their cultural significance.", "price": 120 },
+    { "name": "Things Like These", "img": "book4.jpg", "desc": "A powerful novella about compassion and morality.", "price": 150 },
+    { "name": "Saffron and Pearls", "img": "book5.jpg", "desc": "A memoir filled with family, food, and tradition.", "price": 120 },
+    { "name": "Don't Tell the Governor",  "img": "book6.jpg", "desc": "A thrilling financial crime novel tell the governer set in India.", "price": 100 },
+    { "name": "The Nine-Chambered Heart", "img": "book7.jpg", "desc": "A lyrical novel about love and identity nine chambered hearts.", "price": 120 },
+    { "name": "Festival Stories", "img": "book8.jpg", "desc": "A collection of short stories celebrating festivals.", "price": 150 }
+],
+       
+            
+'WallClock':[
+  {
+    "name": "Vintage Metal Wall Clock",
+    "img": "clock1.jpg",
+    "desc": "Classic metal frame wall clock with antique-style numerals.",
+    "price": 350
+  },
+  {
+    "name": "Peacock Design Wall Clock",
+    "img": "clock2.jpeg",
+    "desc": "Elegant peacock-themed wall clock with decorative accents.",
+    "price": 550
+  },
+  {
+    "name": "Colorful Artistic Wall Clock",
+    "img": "clock3.jpg",
+    "desc": "Multicolor segmented design for a modern artistic touch.",
+    "price": 450
+  },
+  {
+    "name": "Golden Floral Wall Clock",
+    "img": "clock4.jpg",
+    "desc": "Luxurious floral-designed wall clock with golden details.",
+    "price": 250
+  },
+  {
+    "name": "Wooden Geometric Wall Clock",
+    "img": "clock5.jpg",
+    "desc": "Minimalist wooden wall clock with an abstract geometric pattern.",
+    "price": 650
+  },
+  {
+    "name": "Modern Ring Design Wall Clock",
+    "img": "clock6.jpg",
+    "desc": "Sleek, circular ring design for a contemporary wall clock.",
+    "price": 750
+  },
+  {
+    "name": "Dual-Tone Wooden Wall Clock",
+    "img": "clock7.jpg",
+    "desc": "A stylish mix of wood and metal for a premium look.",
+    "price": 550
+  },
+  {
+    "name": "Retro Rustic Wall Clock",
+    "img": "clock8.jpeg",
+    "desc": "Classic rustic-themed wall clock with vintage numbering.",
+    "price": 650
+  }
+],
+
+    
+'DinnerSet': [
+  {
+    "name": "Floral Porcelain Dinner Set",
+    "img": "d1.jpg",
+    "desc": "Elegant porcelain dinner set with a delicate floral design.",
+    "price": 450
+  },
+  {
+    "name": "Classic White Floral Dinner Set",
+    "img": "d2.jpg",
+    "desc": "Timeless white porcelain set with pink floral patterns.",
+    "price": 500
+  },
+  {
+    "name": "Blue and White Dinner Set",
+    "img": "d3.jpg",
+    "desc": "Beautiful blue and white ceramic dinner set for a vintage look.",
+    "price": 550
+  },
+  {
+    "name": "Vintage Rose Dinner Set",
+    "img": "d4.jpeg",
+    "desc": "Charming floral dinnerware perfect for tea parties and gatherings.",
+    "price": 650
+  },
+  {
+    "name": "Natural Woven Dinner Set",
+    "img": "d5.jpg",
+    "desc": "Eco-friendly woven dinnerware set for a sustainable touch.",
+    "price": 350
+  },
+  {
+    "name": "Bold Red Dinner Set",
+    "img": "d6.jpeg",
+    "desc": "Bright and vibrant red dinner set to add energy to your meals.",
+    "price": 300
+  },
+  {
+    "name": "Modern Multicolor Dinner Set",
+    "img": "d7.jpeg",
+    "desc": "Contemporary square-shaped dinnerware in a mix of colors.",
+    "price": 250
+  },
+  {
+    "name": "Brown Stoneware Dinner Set",
+    "img": "d8.jpg",
+    "desc": "Earth-toned stoneware set for a rustic dining feel.",
+    "price": 550
+  }
+],
+
+            
+'SilverGifts':[
+  {
+    "name": "Silver Ganesha Idol",
+    "img": "hws1.jpg",
+    "desc": "Beautifully crafted silver Ganesha idol.",
+    "price": 6650
+  },
+  {
+    "name": "Silver Puja Thali Set",
+    "img": "hws2.jpeg",
+    "desc": "Traditional silver puja thali set.",
+    "price": 2500
+  },
+  {
+    "name": "Silver Peacock Diya Stand",
+    "img": "hws3.jpeg",
+    "desc": "Elegant peacock-designed diya stand.",
+    "price": 2000
+  },
+  {
+    "name": "Silver Candle Stand",
+    "img": "hws4.jpg",
+    "desc": "Silver candle stand with a traditional touch.",
+    "price": 3550
+  },
+  {
+    "name": "Silver Candle Holders ",
+    "img": "hws5.jpg",
+    "desc": "Stylish silver candle holders with a floral design ",
+    "price": 950
+  },
+  {
+    "name": "Silver Kalash",
+    "img": "hws6.jpg",
+    "desc": "Traditional silver kalash for religious ceremonies and decor.",
+    "price": 10000
+  },
+  {
+    "name": "Silver Dining Set",
+    "img": "hws7.jpeg",
+    "desc": "Premium silver dining set including bowls and glasses.",
+    "price": 8500
+  },
+  {
+    "name": "  Silver Designer Bowls ",
+    "img": "hws8.jpeg",
+    "desc": " leaf shape Modern silver bowl set for serving and gifting. ",
+    "price": 4950
+  }
+],
+
+             
+'WirelessSpeaker': [
+  {
+    "name": "Waterproof Bluetooth Speaker",
+    "img": "s1.jpg",
+    "desc": "Portable wireless speaker with waterproof design for outdoor adventures.",
+    "price": 3250
+  },
+  {
+    "name": "Smart Voice Assistant Speaker",
+    "img": "s2.jpeg",
+    "desc": "Wireless smart speaker with built-in voice assistant for hands-free control.",
+    "price": 6550
+  },
+  {
+    "name": "Flame Light Bluetooth Speaker",
+    "img": "s3.jpg",
+    "desc": "Unique flame-effect Bluetooth speaker for ambiance and music in one.",
+    "price": 3050
+  },
+  {
+    "name": "Touch Lamp Bluetooth Speaker",
+    "img": "s4.jpg",
+    "desc": "Multicolor LED touch lamp with a built-in Bluetooth speaker.",
+    "price": 4550
+  },
+  {
+    "name": "Smart Home Bluetooth Speaker",
+    "img": "s5.jpg",
+    "desc": "Sleek smart home speaker with immersive sound and voice assistant compatibility.",
+    "price":4000
+  },
+  {
+    "name": "RGB Light Waterproof Speaker",
+    "img": "s6.jpg",
+    "desc": "Wireless Bluetooth speaker with dynamic RGB lights and waterproof design.",
+    "price": 3050
+  },
+  {
+    "name": "Fabric-Covered Bluetooth Speaker",
+    "img": "s7.jpg",
+    "desc": "Stylish fabric-covered wireless speaker with crystal-clear audio.",
+    "price": 2550
+  },
+  {
+    "name": "Outdoor Bluetooth Speaker",
+    "img": "s8.jpeg",
+    "desc": "Durable outdoor Bluetooth speaker designed for adventure and travel.",
+    "price": 1050
+  }
+],
+
+          
+  
+            'Yoga': [
+    { "name": "Yoga Mat", "img": "yoga1.jpeg", "desc": "High-quality non-slip yoga mat for your daily practice.", "price": 550 },
+    { "name": "Yoga Blocks & Dumbbells", "img": "yoga2.jpeg", "desc": "Essential yoga accessories including blocks and weights.", "price": 2050 },
+    { "name": "Yoga Ball & Foam Roller", "img": "yoga3.jpeg", "desc": "A set including a yoga ball, roller, and resistance bands.", "price": 5550 },
+    { "name": "Yoga Rings", "img": "yoga4.jpeg", "desc": "Durable yoga rings to improve flexibility and strength.", "price": 50 },
+    { "name": "Yoga Equipment Set", "img": "yoga5.jpeg", "desc": "Complete yoga set with jump rope, resistance bands, and ball.", "price": 4050 },
+    { "name": "Resistance Bands", "img": "yoga6.jpeg", "desc": "Color-coded resistance bands for different strength levels.", "price": 3550 },
+    { "name": "Yoga Foam Blocks", "img": "yoga7.jpeg", "desc": "Soft foam blocks to enhance your yoga postures.", "price": 2050 },
+    { "name": "Stretch Bands", "img": "yoga8.jpeg", "desc": "Elastic stretch bands for deep yoga stretching/Thera band", "price": 2000 }
+],
+
+    
         };
 
         if (selectedGift && gifts[selectedGift]) {
-            const galleryImages = gifts[selectedGift];
-            const galleryContainer = document.getElementById('imageGallery');
+    const galleryItems = gifts[selectedGift];
+    const galleryContainer = document.getElementById('imageGallery');
+    galleryContainer.innerHTML = '';
 
-            // Clear any existing content in the gallery
-            galleryContainer.innerHTML = '';
+    galleryItems.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'col-md-3 mb-4';
 
-            for (const image of galleryImages) {
-                // Create a Bootstrap card for each image
-                const card = document.createElement('div');
-                card.className = 'col-md-3 mb-3';
+        const cardBody = document.createElement('div');
+        cardBody.className = 'card shadow-sm';
 
-                const cardBody = document.createElement('div');
-                cardBody.className = 'card';
+        const imgElement = document.createElement('img');
+        imgElement.src = item.img;
+        imgElement.className = 'card-img-top';
+        imgElement.alt = item.desc;
 
-                const imgElement = document.createElement('img');
-                imgElement.src = image;
-                imgElement.className = 'card-img-top';
+        const cardBodyInner = document.createElement('div');
+        cardBodyInner.className = 'card-body text-center';
 
-                const cardFooter = document.createElement('div');
-                cardFooter.className = 'card-footer';
-                cardFooter.innerText = `${selectedGift.replace('_', ' ')} upto $50`;
+        const title = document.createElement('h5');
+        title.className = 'card-title fw-bold';
+        title.innerText = item.name;  // Display correct toy name
 
-                cardBody.appendChild(imgElement);
-                cardBody.appendChild(cardFooter);
-                card.appendChild(cardBody);
+        const description = document.createElement('p');
+        description.className = 'card-text text-muted';
+        description.innerText = item.desc;
 
-                galleryContainer.appendChild(card);
-            }
-        }
+        const price = document.createElement('h6');
+        price.className = 'fw-bold text-danger';
+        price.innerText = `Rs ${item.price}`; // Change "$" to "Rs"
+
+        const addToCartBtn = document.createElement('button');
+        addToCartBtn.className = 'btn btn-success mt-2';
+        addToCartBtn.innerText = 'Add to Cart';
+        addToCartBtn.onclick = () => addToCart(selectedGift, item);
+
+        cardBodyInner.appendChild(title);
+        cardBodyInner.appendChild(description);
+        cardBodyInner.appendChild(price);
+        cardBodyInner.appendChild(addToCartBtn);
+
+        cardBody.appendChild(imgElement);
+        cardBody.appendChild(cardBodyInner);
+        card.appendChild(cardBody);
+        galleryContainer.appendChild(card);
+    });
+   
+
+}
+
+function addToCart(category, item) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ category, img: item.img, desc: item.desc, price: item.price });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${item.desc} added to cart!`);
+}
+
     </script>
 </body>
 </html>
